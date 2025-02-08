@@ -1,0 +1,6 @@
+name: HandyShulkers
+main: io.gooby.handyshulkers.HandyShulkers
+version: 1.0
+description: A simple plugin that allows players to open shulkerboxes in their hand.
+author: me.gooby
+api-version: '1.21.4'

@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+}
+
+group = 'io.gooby.handyshulkers'
+version = '1.0'
+
+repositories {
+    maven {
+        name = 'papermc'
+        url = 'https://repo.papermc.io/repository/maven-public/'
+    }
+}
+
+dependencies {
+    compileOnly 'io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT'
+}
+
+task copyJarToBaseDir(type: Copy) {
+    dependsOn jar
+    from jar.archiveFile
+    into "$rootDir"
+
+    doNotTrackState("ignore")
+    outputs.upToDateWhen { false }
+}
+
+build.dependsOn copyJarToBaseDir
